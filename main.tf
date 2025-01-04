@@ -77,11 +77,6 @@ resource "aws_security_group" "wordpress_sg" {
   }
 }
 
-resource "aws_key_pair" "wp_mysql_key" {
-  key_name   = "wp_mysql_key"
-  public_key = file(var.ssh_public_key_path)  # SSH key path as a variable
-}
-
 resource "aws_instance" "wordpress" {
   ami           = var.wordpress_ami
   instance_type = var.instance_type
